@@ -1,9 +1,9 @@
 # sovrython
-This is team repository for a sovrython
+This is team repository for a sovrython  
 
-# Each tackled bounty should have its own directory under this repository
+- **Each tackled bounty should have its own directory under this repository**
 
-# Resource directory contains learning material and documentation we found useful
+- **Resource directory contains learning material and documentation we found useful**
 
 Our team:
 - https://github.com/shwetaudacious
