@@ -1,3 +1,8 @@
+## Before running get:
+- truffle-config.js
+- yarn.lock
+
+
 ## Accounts:
 (0) 0x99cf2ff46a1b242ad7d0b99e1acae569ebf91772
 (1) 0xfc695525dd25510fc11c92398254d829fc312943

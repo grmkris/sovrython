@@ -37,6 +37,7 @@ function Index(props) {
     setUpdateComponent(<Spinner animation="border" variant="success" />);
     setMainnetBlock(await web3Mainnet.eth.getBlockNumber());
     setTestnetBlock(await web3Testnet.eth.getBlockNumber());
+    setSimpleStorageValue(0);
     setSimpleStorageValue((await getSimpleStorageValue()).toNumber());
     setUpdateComponent(<UpdateButton />);
   }
