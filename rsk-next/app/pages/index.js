@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
-import { web3Mainnet, web3Testnet, getSimpleStorageValue} from '../utils/web3-util';
+import {web3Mainnet, web3Testnet, getSimpleStorageValue, getTimeStamp} from '../utils/web3-util';
 
 function Index(props) {
   const UpdateButton = () => (
@@ -16,7 +16,8 @@ function Index(props) {
   const [mainnetBlock, setMainnetBlock] = useState(1);
   const [testnetBlock, setTestnetBlock] = useState(1);
   const [simpleStorageValue, setSimpleStorageValue] = useState(1);
-  
+  const [timestamp, setTimestamp] = useState(1);
+
   const [updateComponent, setUpdateComponent] = useState(<UpdateButton />);
   const [bestBlockLoading, setBestBlockLoading] = useState(true);
 
@@ -25,7 +26,9 @@ function Index(props) {
       const mainnetBestBlock = await web3Mainnet.eth.getBlockNumber();
       const testnetBestBlock = await web3Testnet.eth.getBlockNumber();
       const networkSimpleStorageValue = await getSimpleStorageValue();
-      setSimpleStorageValue(networkSimpleStorageValue.toNumber());      
+      const networkTimestamp = await getTimeStamp();
+      setSimpleStorageValue(networkSimpleStorageValue.toNumber());
+      setTimestamp(networkTimestamp.toNumber());
       setMainnetBlock(mainnetBestBlock);
       setTestnetBlock(testnetBestBlock);
       setBestBlockLoading(false);
@@ -39,6 +42,7 @@ function Index(props) {
     setTestnetBlock(await web3Testnet.eth.getBlockNumber());
     setSimpleStorageValue(0);
     setSimpleStorageValue((await getSimpleStorageValue()).toNumber());
+    setTimestamp((await getTimeStamp()).toNumber());
     setUpdateComponent(<UpdateButton />);
   }
 
@@ -52,6 +56,8 @@ function Index(props) {
             <h4>Testnet best block {props.testnetBlock}</h4>
             <br />
             <h4>Simple Storage Value {props.simpleStorageValue}</h4>
+            <br/>
+            <h4>Timestamp {props.timestamp}</h4>
           </div>
         ) : (
           <Spinner animation="border" variant="success" />
@@ -74,6 +80,7 @@ function Index(props) {
             mainnetBlock={mainnetBlock}
             testnetBlock={testnetBlock}
             simpleStorageValue={simpleStorageValue}
+            timestamp={timestamp}
             loading={bestBlockLoading}
           />
         </Form.Group>

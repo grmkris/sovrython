@@ -11,6 +11,17 @@ module.exports = JSON.parse("{\"contractName\":\"SimpleStorage\",\"abi\":[{\"con
 
 /***/ }),
 
+/***/ "./contracts/TimeStamp.json":
+/*!**********************************!*\
+  !*** ./contracts/TimeStamp.json ***!
+  \**********************************/
+/*! exports provided: contractName, abi, metadata, bytecode, deployedBytecode, sourceMap, deployedSourceMap, source, sourcePath, ast, legacyAST, compiler, networks, schemaVersion, updatedAt, networkType, devdoc, userdoc, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"contractName\":\"TimeStamp\",\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"Time_call\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"metadata\":\"{\\\"compiler\\\":{\\\"version\\\":\\\"0.5.7+commit.6da8b019\\\"},\\\"language\\\":\\\"Solidity\\\",\\\"output\\\":{\\\"abi\\\":[{\\\"constant\\\":true,\\\"inputs\\\":[],\\\"name\\\":\\\"Time_call\\\",\\\"outputs\\\":[{\\\"name\\\":\\\"\\\",\\\"type\\\":\\\"uint256\\\"}],\\\"payable\\\":false,\\\"stateMutability\\\":\\\"view\\\",\\\"type\\\":\\\"function\\\"}],\\\"devdoc\\\":{\\\"methods\\\":{}},\\\"userdoc\\\":{\\\"methods\\\":{}}},\\\"settings\\\":{\\\"compilationTarget\\\":{\\\"/home/kristjan/git/sovrython/rsk-next/contracts/TimeStamp.sol\\\":\\\"TimeStamp\\\"},\\\"evmVersion\\\":\\\"petersburg\\\",\\\"libraries\\\":{},\\\"optimizer\\\":{\\\"enabled\\\":false,\\\"runs\\\":200},\\\"remappings\\\":[]},\\\"sources\\\":{\\\"/home/kristjan/git/sovrython/rsk-next/contracts/TimeStamp.sol\\\":{\\\"keccak256\\\":\\\"0x60f4e56da03ef2b8c3b4bec9797d30a72f05c3c759380217081adf333346ef4b\\\",\\\"urls\\\":[\\\"bzzr://9b01b642869ae651807e4939c1d84475a10d2facfde82b56e69b9f188b2fc06b\\\"]}},\\\"version\\\":1}\",\"bytecode\":\"0x6080604052348015600f57600080fd5b50607d8061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80630326103014602d575b600080fd5b60336049565b6040518082815260200191505060405180910390f35b60004290509056fea165627a7a72305820e46e85d422b56886bb7bee295a153ef375056f861ec80aa9db93eb23e32a7a2a0029\",\"deployedBytecode\":\"0x6080604052348015600f57600080fd5b506004361060285760003560e01c80630326103014602d575b600080fd5b60336049565b6040518082815260200191505060405180910390f35b60004290509056fea165627a7a72305820e46e85d422b56886bb7bee295a153ef375056f861ec80aa9db93eb23e32a7a2a0029\",\"sourceMap\":\"34:96:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;34:96:0;;;;;;;\",\"deployedSourceMap\":\"34:96:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;34:96:0;;;;;;;;;;;;;;;;;;;57:71;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;99:7;120:3;113:10;;57:71;:::o\",\"source\":\"pragma solidity >=0.4.21 <0.7.0;\\n\\ncontract TimeStamp {\\n  function Time_call() public view returns (uint256){\\n    return now;\\n  }\\n}\",\"sourcePath\":\"/home/kristjan/git/sovrython/rsk-next/contracts/TimeStamp.sol\",\"ast\":{\"absolutePath\":\"/home/kristjan/git/sovrython/rsk-next/contracts/TimeStamp.sol\",\"exportedSymbols\":{\"TimeStamp\":[10]},\"id\":11,\"nodeType\":\"SourceUnit\",\"nodes\":[{\"id\":1,\"literals\":[\"solidity\",\">=\",\"0.4\",\".21\",\"<\",\"0.7\",\".0\"],\"nodeType\":\"PragmaDirective\",\"src\":\"0:32:0\"},{\"baseContracts\":[],\"contractDependencies\":[],\"contractKind\":\"contract\",\"documentation\":null,\"fullyImplemented\":true,\"id\":10,\"linearizedBaseContracts\":[10],\"name\":\"TimeStamp\",\"nodeType\":\"ContractDefinition\",\"nodes\":[{\"body\":{\"id\":8,\"nodeType\":\"Block\",\"src\":\"107:21:0\",\"statements\":[{\"expression\":{\"argumentTypes\":null,\"id\":6,\"name\":\"now\",\"nodeType\":\"Identifier\",\"overloadedDeclarations\":[],\"referencedDeclaration\":27,\"src\":\"120:3:0\",\"typeDescriptions\":{\"typeIdentifier\":\"t_uint256\",\"typeString\":\"uint256\"}},\"functionReturnParameters\":5,\"id\":7,\"nodeType\":\"Return\",\"src\":\"113:10:0\"}]},\"documentation\":null,\"id\":9,\"implemented\":true,\"kind\":\"function\",\"modifiers\":[],\"name\":\"Time_call\",\"nodeType\":\"FunctionDefinition\",\"parameters\":{\"id\":2,\"nodeType\":\"ParameterList\",\"parameters\":[],\"src\":\"75:2:0\"},\"returnParameters\":{\"id\":5,\"nodeType\":\"ParameterList\",\"parameters\":[{\"constant\":false,\"id\":4,\"name\":\"\",\"nodeType\":\"VariableDeclaration\",\"scope\":9,\"src\":\"99:7:0\",\"stateVariable\":false,\"storageLocation\":\"default\",\"typeDescriptions\":{\"typeIdentifier\":\"t_uint256\",\"typeString\":\"uint256\"},\"typeName\":{\"id\":3,\"name\":\"uint256\",\"nodeType\":\"ElementaryTypeName\",\"src\":\"99:7:0\",\"typeDescriptions\":{\"typeIdentifier\":\"t_uint256\",\"typeString\":\"uint256\"}},\"value\":null,\"visibility\":\"internal\"}],\"src\":\"98:9:0\"},\"scope\":10,\"src\":\"57:71:0\",\"stateMutability\":\"view\",\"superFunction\":null,\"visibility\":\"public\"}],\"scope\":11,\"src\":\"34:96:0\"}],\"src\":\"0:130:0\"},\"legacyAST\":{\"attributes\":{\"absolutePath\":\"/home/kristjan/git/sovrython/rsk-next/contracts/TimeStamp.sol\",\"exportedSymbols\":{\"TimeStamp\":[10]}},\"children\":[{\"attributes\":{\"literals\":[\"solidity\",\">=\",\"0.4\",\".21\",\"<\",\"0.7\",\".0\"]},\"id\":1,\"name\":\"PragmaDirective\",\"src\":\"0:32:0\"},{\"attributes\":{\"baseContracts\":[null],\"contractDependencies\":[null],\"contractKind\":\"contract\",\"documentation\":null,\"fullyImplemented\":true,\"linearizedBaseContracts\":[10],\"name\":\"TimeStamp\",\"scope\":11},\"children\":[{\"attributes\":{\"documentation\":null,\"implemented\":true,\"isConstructor\":false,\"kind\":\"function\",\"modifiers\":[null],\"name\":\"Time_call\",\"scope\":10,\"stateMutability\":\"view\",\"superFunction\":null,\"visibility\":\"public\"},\"children\":[{\"attributes\":{\"parameters\":[null]},\"children\":[],\"id\":2,\"name\":\"ParameterList\",\"src\":\"75:2:0\"},{\"children\":[{\"attributes\":{\"constant\":false,\"name\":\"\",\"scope\":9,\"stateVariable\":false,\"storageLocation\":\"default\",\"type\":\"uint256\",\"value\":null,\"visibility\":\"internal\"},\"children\":[{\"attributes\":{\"name\":\"uint256\",\"type\":\"uint256\"},\"id\":3,\"name\":\"ElementaryTypeName\",\"src\":\"99:7:0\"}],\"id\":4,\"name\":\"VariableDeclaration\",\"src\":\"99:7:0\"}],\"id\":5,\"name\":\"ParameterList\",\"src\":\"98:9:0\"},{\"children\":[{\"attributes\":{\"functionReturnParameters\":5},\"children\":[{\"attributes\":{\"argumentTypes\":null,\"overloadedDeclarations\":[null],\"referencedDeclaration\":27,\"type\":\"uint256\",\"value\":\"now\"},\"id\":6,\"name\":\"Identifier\",\"src\":\"120:3:0\"}],\"id\":7,\"name\":\"Return\",\"src\":\"113:10:0\"}],\"id\":8,\"name\":\"Block\",\"src\":\"107:21:0\"}],\"id\":9,\"name\":\"FunctionDefinition\",\"src\":\"57:71:0\"}],\"id\":10,\"name\":\"ContractDefinition\",\"src\":\"34:96:0\"}],\"id\":11,\"name\":\"SourceUnit\",\"src\":\"0:130:0\"},\"compiler\":{\"name\":\"solc\",\"version\":\"0.5.7+commit.6da8b019.Emscripten.clang\"},\"networks\":{\"31\":{\"events\":{},\"links\":{},\"address\":\"0x5296Fd0cE1E705a6C31574bfd96A6454038596f9\",\"transactionHash\":\"0x5548d4c495b9c5e20833e0f5c23e874db66ed7e46d7e0c7507ff155f56c28a07\"}},\"schemaVersion\":\"3.4.1\",\"updatedAt\":\"2021-06-15T18:26:39.090Z\",\"networkType\":\"ethereum\",\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}}");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/arrayLikeToArray.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
@@ -91205,24 +91216,28 @@ function Index(props) {
       simpleStorageValue = _useState3[0],
       setSimpleStorageValue = _useState3[1];
 
-  var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(__jsx(UpdateButton, {
+  var _useState4 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(1),
+      timestamp = _useState4[0],
+      setTimestamp = _useState4[1];
+
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(__jsx(UpdateButton, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20,
+      lineNumber: 21,
       columnNumber: 58
     }
   })),
-      updateComponent = _useState4[0],
-      setUpdateComponent = _useState4[1];
+      updateComponent = _useState5[0],
+      setUpdateComponent = _useState5[1];
 
-  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(true),
-      bestBlockLoading = _useState5[0],
-      setBestBlockLoading = _useState5[1];
+  var _useState6 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(true),
+      bestBlockLoading = _useState6[0],
+      setBestBlockLoading = _useState6[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
     var initNetworkData = function initNetworkData() {
-      var mainnetBestBlock, testnetBestBlock, networkSimpleStorageValue;
+      var mainnetBestBlock, testnetBestBlock, networkSimpleStorageValue, networkTimestamp;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function initNetworkData$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -91242,12 +91257,18 @@ function Index(props) {
 
             case 8:
               networkSimpleStorageValue = _context.sent;
+              _context.next = 11;
+              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_utils_web3_util__WEBPACK_IMPORTED_MODULE_7__["getTimeStamp"])());
+
+            case 11:
+              networkTimestamp = _context.sent;
               setSimpleStorageValue(networkSimpleStorageValue.toNumber());
+              setTimestamp(networkTimestamp.toNumber());
               setMainnetBlock(mainnetBestBlock);
               setTestnetBlock(testnetBestBlock);
               setBestBlockLoading(false);
 
-            case 13:
+            case 17:
             case "end":
               return _context.stop();
           }
@@ -91269,7 +91290,7 @@ function Index(props) {
               __self: this,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 37,
+                lineNumber: 40,
                 columnNumber: 24
               }
             }));
@@ -91295,16 +91316,23 @@ function Index(props) {
           case 15:
             _context2.t5 = _context2.sent.toNumber();
             (0, _context2.t4)(_context2.t5);
+            _context2.t6 = setTimestamp;
+            _context2.next = 20;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(Object(_utils_web3_util__WEBPACK_IMPORTED_MODULE_7__["getTimeStamp"])());
+
+          case 20:
+            _context2.t7 = _context2.sent.toNumber();
+            (0, _context2.t6)(_context2.t7);
             setUpdateComponent(__jsx(UpdateButton, {
               __self: this,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 42,
+                lineNumber: 46,
                 columnNumber: 24
               }
             }));
 
-          case 18:
+          case 23:
           case "end":
             return _context2.stop();
         }
@@ -91317,51 +91345,65 @@ function Index(props) {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49,
+        lineNumber: 53,
         columnNumber: 11
       }
     }, __jsx("h4", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50,
+        lineNumber: 54,
         columnNumber: 13
       }
     }, "Mainnet best block ", props.mainnetBlock), __jsx("br", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51,
+        lineNumber: 55,
         columnNumber: 13
       }
     }), __jsx("h4", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52,
+        lineNumber: 56,
         columnNumber: 13
       }
     }, "Testnet best block ", props.testnetBlock), __jsx("br", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53,
+        lineNumber: 57,
         columnNumber: 13
       }
     }), __jsx("h4", {
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 54,
+        lineNumber: 58,
         columnNumber: 13
       }
-    }, "Simple Storage Value ", props.simpleStorageValue)) : __jsx(react_bootstrap_Spinner__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }, "Simple Storage Value ", props.simpleStorageValue), __jsx("br", {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 59,
+        columnNumber: 13
+      }
+    }), __jsx("h4", {
+      __self: _this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 60,
+        columnNumber: 13
+      }
+    }, "Timestamp ", props.timestamp)) : __jsx(react_bootstrap_Spinner__WEBPACK_IMPORTED_MODULE_5__["default"], {
       animation: "border",
       variant: "success",
       __self: _this,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 57,
+        lineNumber: 63,
         columnNumber: 11
       }
     }));
@@ -91372,14 +91414,14 @@ function Index(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64,
+      lineNumber: 70,
       columnNumber: 5
     }
   }, _static_styles_index_styles__WEBPACK_IMPORTED_MODULE_2__["default"], __jsx("div", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66,
+      lineNumber: 72,
       columnNumber: 7
     }
   }, __jsx("img", {
@@ -91387,7 +91429,7 @@ function Index(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67,
+      lineNumber: 73,
       columnNumber: 9
     }
   })), __jsx("h1", {
@@ -91395,46 +91437,47 @@ function Index(props) {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 69,
+      lineNumber: 75,
       columnNumber: 7
     }
   }, "Welcome To RSK + Next JS Truffle Box"), __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 70,
+      lineNumber: 76,
       columnNumber: 7
     }
   }), __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71,
+      lineNumber: 77,
       columnNumber: 7
     }
   }, __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_4__["default"].Group, {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72,
+      lineNumber: 78,
       columnNumber: 9
     }
   }, __jsx(NetworkData, {
     mainnetBlock: mainnetBlock,
     testnetBlock: testnetBlock,
     simpleStorageValue: simpleStorageValue,
+    timestamp: timestamp,
     loading: bestBlockLoading,
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73,
+      lineNumber: 79,
       columnNumber: 11
     }
   })), __jsx("br", {
     __self: this,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80,
+      lineNumber: 87,
       columnNumber: 9
     }
   }), updateComponent));
@@ -91477,7 +91520,7 @@ var styles = __jsx("style", {
 /*!****************************!*\
   !*** ./utils/web3-util.js ***!
   \****************************/
-/*! exports provided: web3Mainnet, web3Testnet, getSimpleStorageValue */
+/*! exports provided: web3Mainnet, web3Testnet, getSimpleStorageValue, getTimeStamp */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -91485,6 +91528,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "web3Mainnet", function() { return web3Mainnet; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "web3Testnet", function() { return web3Testnet; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSimpleStorageValue", function() { return getSimpleStorageValue; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTimeStamp", function() { return getTimeStamp; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 
@@ -91492,6 +91536,8 @@ __webpack_require__.r(__webpack_exports__);
 var Web3 = __webpack_require__(/*! web3 */ "./node_modules/web3/dist/web3.umd.js");
 
 var SimpleStorageContract = __webpack_require__(/*! ../contracts/SimpleStorage.json */ "./contracts/SimpleStorage.json");
+
+var TimeStampContract = __webpack_require__(/*! ../contracts/TimeStamp.json */ "./contracts/TimeStamp.json");
 
 var web3Mainnet = new Web3(new Web3.providers.HttpProvider('https://public-node.rsk.co'));
 var web3Testnet = new Web3(new Web3.providers.HttpProvider('https://public-node.testnet.rsk.co'));
@@ -91522,6 +91568,37 @@ function getSimpleStorageValue() {
         case 10:
         case "end":
           return _context.stop();
+      }
+    }
+  }, null, null, null, Promise);
+}
+function getTimeStamp() {
+  var provider, web3, networkId, deployedNetwork, contractInstance;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.async(function getTimeStamp$(_context2) {
+    while (1) {
+      switch (_context2.prev = _context2.next) {
+        case 0:
+          // To connect to RSK network update line 15 for one of the following providers:
+          // const provider = new Web3.providers.HttpProvider("https://public-node.testnet.rsk.co");
+          // const provider = new Web3.providers.HttpProvider("https://public-node.rsk.co");
+          provider = new Web3.providers.HttpProvider("https://public-node.testnet.rsk.co");
+          web3 = new Web3(provider);
+          _context2.next = 4;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(web3.eth.net.getId());
+
+        case 4:
+          networkId = _context2.sent;
+          deployedNetwork = TimeStampContract.networks[networkId];
+          contractInstance = new web3.eth.Contract(TimeStampContract.abi, deployedNetwork && deployedNetwork.address);
+          _context2.next = 9;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.awrap(contractInstance.methods.Time_call.call());
+
+        case 9:
+          return _context2.abrupt("return", _context2.sent);
+
+        case 10:
+        case "end":
+          return _context2.stop();
       }
     }
   }, null, null, null, Promise);
