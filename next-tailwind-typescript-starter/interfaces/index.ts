@@ -4,11 +4,6 @@
 //
 // import { User } from 'path/to/interfaces';
 
-export type User = {
-  id: number
-  name: string
-}
-
 export type CreateInvoice = {
   checking_id: string;
   lnurl_response: string;

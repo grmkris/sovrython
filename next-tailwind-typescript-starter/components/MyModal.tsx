@@ -6,28 +6,55 @@ import {CreateInvoice} from "../interfaces";
 const API_URL = 'http://localhost:3000/api/lnbits';
 
 const QRCode = require('qrcode.react');
-export default function MyModal() {
+export default function MyModal(props) {
     const [open, setOpen] = useState(false)
     const [data, setData] = useState<CreateInvoice | undefined>(undefined);
+    const [paymentStatus, setPaymentStatus] = useState(false);
 
     async function fetcher(url) {
         console.log(open);
-        if (open){
-            const res = await fetch(url);
-            const json = await res.json();
-            console.log(json);
-            return json;
+        let data = {
+            address: props.props.address,
+            amount: props.props.amount
         }
-        else return "";
+        const res = await fetch(url, {method: "POST", body: JSON.stringify(data)});
+        const json = await res.json();
+        console.log(json);
+        return json;
     }
+
+    async function getPaymentStatus(payment_hash) {
+        const res = await fetch(API_URL + `/${payment_hash}`, {method: "POST", body: JSON.stringify(data)});
+        return res.json();
+    }
+
+    async function check_payment(payment_hash){
+        let timerId = setInterval(async function () {
+            console.log("Checking payment for: " + payment_hash)
+            let paid = await getPaymentStatus(payment_hash);
+            if (paid == true){
+                clearInterval(timerId);
+                setPaymentStatus(true);
+                console.log("Payment received for: " + payment_hash)
+            }
+            if (!open)
+                clearInterval(timerId);
+        }, 2000)
+        paymentStatus?console.log("interval already cleared"):setTimeout(() => { clearInterval(timerId); console.log("No payment for: " + payment_hash); }, 60000);
+    }
+
     useEffect(() => {
-        fetcher(API_URL).then(data => {
-            setData(data);
-        });
+        if (open){
+            fetcher(API_URL).then(data => {
+                setData(data);
+                check_payment(data.payment_hash).then(r => console.log(r));
+            });
+        }
     },[open])
 
     function closeModal() {
         setOpen(false)
+        setPaymentStatus(false)
     }
 
     function openModal() {
@@ -82,18 +109,34 @@ export default function MyModal() {
                                 >
 
                                 </Dialog.Title>
-                                <div className="mt-2">
-                                    {!data && <div>loading...</div>}
-                                    {data &&
-                                    <>
-                                        <QRCode  className="mt-1 mx-auto" value={data.payment_request} size={256} />
-                                        <p>Waiting for payment</p>
-                                        <p>{data.payment_request}</p>
+                                <div>
+                                    <div className="mt-2">
+                                        {!data &&
                                         <div className="mx-auto w-min">
                                             <Loader type="ThreeDots" color="orange" height="100" width="100" />
-                                        </div>
-                                    </>
-                                    }
+                                        </div>}
+                                        {data &&
+                                         <>
+                                             {!paymentStatus && <>
+                                                 <QRCode  className="mt-1 mx-auto" value={data.payment_request} size={256} />
+                                                 <div className="title-font text-center sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+                                                     Waiting for payment</div>
+                                                 <div className="mx-auto w-min">
+                                                     <Loader type="ThreeDots" color="orange" height="50" width="100" />
+                                                 </div>
+                                                 <span className="mb-4 text-xs leading-relaxed break-words">{data.payment_request}</span>
+                                             </> }
+                                             {paymentStatus && <>
+                                                 <div className="mx-auto w-min" >
+                                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24 fill-current text-green-600" viewBox="0 0 20 20" fill="currentColor">
+                                                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                                     </svg>
+                                                 </div>
+                                             </>}
+
+                                        </>
+                                        }
+                                    </div>
                                 </div>
 
                                 <div className="mt-4">
@@ -102,7 +145,8 @@ export default function MyModal() {
                                         className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                                         onClick={closeModal}
                                     >
-                                        Cancel
+                                        {!paymentStatus && "Cancel"}
+                                        {paymentStatus && "Close"}
                                     </button>
                                 </div>
                             </div>
