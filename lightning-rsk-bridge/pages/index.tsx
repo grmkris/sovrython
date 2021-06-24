@@ -105,7 +105,7 @@ function index() {
                             </div>
                         </div>
                     </div> }
-                    {showInputField && <MyModal props={{amount:amount, address: username}}/>}
+                    {showInputField && <MyModal props={{amount:amount, address: username, typeOfExchange: typeOfExchange}}/>}
                 </div>
             </section>
         </>
