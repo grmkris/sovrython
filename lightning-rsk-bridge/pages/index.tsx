@@ -42,33 +42,37 @@ function index() {
     }, [])
     return (
         <>
+            {username != "loading..." && <button className="text-white font-semibold m-4 py-2 px-4 rounded bg-gray-900 hover:bg-gray-800" onClick={loginToEth}>LOGOUT</button>}
+            {username == "loading..." && <button className="text-white font-semibold m-4 py-2 px-4 rounded bg-gray-900 hover:bg-gray-800" onClick={loginToEth}>LOGIN</button>}
+            {username != "loading..." && <span> Hello: {username} </span> }
             <section className="text-gray-600 body-font">
                 <div className="container px-5 py-8 mx-auto">
                     <div className="flex flex-wrap -mx-4 -mb-10 text-center">
                         <div className="sm:w-1/2 mb-10 px-4">
                             <div onClick={() => {
-                                setShowInputField(true);
-                                setTypeOfExchange("LBTC")
-                            }} className={` ${(username == "loading...")?"cursor-not-allowed bg-gradient-to-tr from-gray-200 via-gray-400 to-gray-600":"cursor-pointer bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 hover:from-green-400 hover:to-blue-500 hover:text-black"}  text-white text-6xl  rounded-lg h-64 overflow-hidden
-                                            ${(typeOfExchange == "LBTC")?"border-4 border-yellow-900":""}
+                                if (username != "loading...") {
+                                    setShowInputField(true);
+                                    setTypeOfExchange("LBTC")
+                                }
+                            }} className={` ${(username == "loading...")?"cursor-not-allowed bg-gradient-to-tr from-gray-200 via-gray-400 to-gray-600":"cursor-pointer bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 hover:from-red-400 hover:to-yellow-500 hover:text-black"}  text-white text-6xl  rounded-lg h-64 overflow-hidden
+                                            ${(typeOfExchange == "LBTC")?"border-4 border-gray-900":""}
                             `}>
                                 <span className="inline-block align-bottom pt-20">Buy RBTC with ⚡</span>
                             </div>
                         </div>
                         <div className="sm:w-1/2 mb-10 px-4">
                             <div onClick={() => {
-                                setShowInputField(true);
-                                setTypeOfExchange("RBTC")
-                            }} className={` ${(username == "loading...")?"cursor-not-allowed bg-gradient-to-tr from-gray-200 via-gray-400 to-gray-600":"cursor-pointer bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 hover:from-green-400 hover:to-blue-500 hover:text-black"}  text-white text-6xl  rounded-lg h-64 overflow-hidden
-                                            ${(typeOfExchange == "RBTC")?"border-4 border-yellow-900":""}
+                                if (username != "loading...") {
+                                    setShowInputField(true);
+                                    setTypeOfExchange("RBTC")
+                                }
+                            }} className={` ${(username == "loading...")?"cursor-not-allowed bg-gradient-to-tr from-gray-200 via-gray-400 to-gray-600":"cursor-pointer bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 hover:from-red-400 hover:to-yellow-500 hover:text-black"}  text-white text-6xl  rounded-lg h-64 overflow-hidden
+                                            ${(typeOfExchange == "RBTC")?"border-4 border-gray-900":""}
                             `}>
                                 <span className="inline-block align-bottom pt-20">Buy ⚡ with RBTC</span>
                             </div>
                         </div>
                     </div>
-                    {username != "loading..." && <button className="text-white font-semibold m-4 py-2 px-4 rounded bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 hover:from-green-400 hover:to-blue-500" onClick={loginToEth}>LOGOUT</button>}
-                    {username == "loading..." && <button className="text-white font-semibold m-4 py-2 px-4 rounded bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 hover:from-green-400 hover:to-blue-500" onClick={loginToEth}>LOGIN</button>}
-                    {username != "loading..." && <span> Hello: {username} </span> }
                     {showInputField &&
                     <div >
                         <label htmlFor="price" className="block text-sm font-medium text-gray-700">
