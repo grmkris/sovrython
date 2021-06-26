@@ -4,7 +4,7 @@ import Loader from "react-loader-spinner";
 import {CreateInvoice} from "../interfaces";
 import Web3 from "web3";
 
-const API_URL = 'http://localhost:3000/api/lnbits';
+const API_URL = 'http://localhost:3000/api';
 declare let window: any;
 const QRCode = require('qrcode.react');
 export default function MyModal(props) {
@@ -12,20 +12,20 @@ export default function MyModal(props) {
     const [data, setData] = useState<CreateInvoice | undefined>(undefined);
     const [paymentStatus, setPaymentStatus] = useState(false);
     const [username, setUsername] = useState("loading...");
-    async function fetcher(url) {
+    async function fetcher() {
         console.log(isOpen);
         let data = {
             address: props.props.address,
             amount: props.props.amount,
         }
         if (props.props.typeOfExchange == "LBTC") {
-            const res = await fetch(url, {method: "POST", body: JSON.stringify(data)});
+            const res = await fetch(API_URL + "/lnbits", {method: "POST", body: JSON.stringify(data)});
             const json = await res.json();
             console.log(json);
             return json;
         }
         if (props.props.typeOfExchange == "RBTC") {
-            const res = await fetch(url, {method: "POST", body: JSON.stringify(data)});
+            const res = await fetch(API_URL + "/rsk", {method: "POST", body: JSON.stringify(data)});
             const json = await res.json();
             console.log(json);
             return json;
@@ -80,7 +80,7 @@ export default function MyModal(props) {
     useEffect(() => {
         sendFunds(1);
         if (isOpen){
-            fetcher(API_URL).then(data => {
+            fetcher().then(data => {
                 setData(data);
                 check_payment(data.payment_hash).then(r => console.log(r));
             });

@@ -29,6 +29,7 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
 }
 
 async function checkPayment(newInvoice, address, amount) {
+    // TODO rewrite to check rsk payment
     let success = false;
     let timerId = setInterval(async function () {
         console.log("Checking payment for: " + newInvoice.payment_hash)
@@ -37,7 +38,7 @@ async function checkPayment(newInvoice, address, amount) {
             clearInterval(timerId);
             success = true;
             console.log("Payment received for: " + newInvoice.payment_hash)
-            rskSendFunds(address, amount * 10000000000);
+            lightningSendFunds(address, amount * 10000000000);
         }
     }, 10000)
 

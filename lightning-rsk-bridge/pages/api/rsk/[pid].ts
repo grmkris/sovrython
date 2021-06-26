@@ -12,7 +12,8 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
     const {pid} = _req.query
     let payment_hash = pid.toString();
     console.log("Client checking payment status: " + payment_hash);
-    let response = await wallet.checkInvoice({payment_hash: payment_hash });
+    // TODO check blockchain payment
+    //  let response = await wallet.checkInvoice({payment_hash: payment_hash });
     res.end(`${response['paid']}`)
 }
 
