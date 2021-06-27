@@ -6,13 +6,10 @@ const { wallet } = LNBits({
     endpoint: process.env.LNBITS_URL, //default
 });
 
-export async function lightningSendFunds(address : string, amount : number){
-    // TODO add lnbits api
-    console.log("sending funds to: " + address)
-    const ethers = require('ethers');
-    response.then(data => {
-        console.log("Funds sent in: " + data.transactionHash);
-    })
+export async function lightningSendFunds(invoice : string){
+    wallet.payInvoice({bolt11 : invoice, out: false}).then(data => {
+        console.log(data)
+    });
 }
 
 export async function checkPayment(payment_hash : string){
