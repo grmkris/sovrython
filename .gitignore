@@ -3,3 +3,4 @@ yarn.lock
 truffle-config.js
 .idea
 .env
+.secret
