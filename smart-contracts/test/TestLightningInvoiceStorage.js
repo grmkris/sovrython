@@ -3,7 +3,7 @@ const Web3 = require('web3');
 
 
 contract('LightningInvoiceStorage', (accounts) => {
-    it('should store lightning invoices', async () => {
+    it('should store lightning invoices and ', async () => {
         const lightningInvoiceStorage = await LightningInvoiceStorage.deployed();
         // Set value of example lightning invoice
         const invoice = "lnbc1pwr3fk2pp5zh36fav42ngkxfzywag42y06e03drpcujg38mq5gzkftdhp3phhsdqqcqzysvq8mgc5782mje6x0hgqd70pc83aa52g8pmpnc0j9x4pa3hrz3csp0ezl477f06ee4qmt4plcmmsftypy727w9zn06h9h6cz4n02t9qcp0c74yt";
@@ -13,7 +13,6 @@ contract('LightningInvoiceStorage', (accounts) => {
         await lightningInvoiceStorage.addNewInvoice(invoice, { from: accounts[0], value: 1000 });
         await lightningInvoiceStorage.addNewInvoice(invoice, { from: accounts[0], value: 1000 });
         await lightningInvoiceStorage.addNewInvoice(invoice, { from: accounts[0], value: 1000 });
-    });
         // Get stored value
         const storedData = await lightningInvoiceStorage.getInvoices();
 
