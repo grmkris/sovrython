@@ -6,7 +6,7 @@ const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
     let payment_hash = pid.toString();
     console.log("Client checking payment status: " + payment_hash);
     let response = await checkPayment(payment_hash);
-    res.end(response)
+    res.status(200).json(response);
 }
 
 export default handler

@@ -33,7 +33,7 @@ export default function MyModal(props) {
     }
 
     async function getPaymentStatus(payment_hash) {
-        const res = await fetch(API_URL + `/${payment_hash}`, {method: "POST", body: JSON.stringify(data)});
+        const res = await fetch(API_URL + `/lnbits/${payment_hash}`, {method: "POST", body: JSON.stringify(data)});
         return res.json();
     }
 

@@ -1,5 +1,6 @@
 import LNBits from "lnbits";
 import {rskSendFunds} from "./web3-util";
+import {CreateInvoice} from "../interfaces";
 const { wallet } = LNBits({
     adminKey: process.env.LNBITS_ADMIN_KEY,
     invoiceReadKey: process.env.LNBITS_INVOICE_READ_KEY,
@@ -12,7 +13,7 @@ export async function lightningSendFunds(invoice : string){
     });
 }
 
-export async function checkPayment(payment_hash : string){
+export async function checkPayment(payment_hash : string) : Promise<boolean>{
     let response = await wallet.checkInvoice({payment_hash: payment_hash });
     return response['paid'];
 }
@@ -40,8 +41,8 @@ export async function waitForPaymentAndSendFunds(newInvoice, address, amount) {
     }, 100000);
 }
 
-export async function createInvoice(amount: number, rskAddress: string){
-    await wallet.createInvoice({
+export async function createInvoice(amount: number, rskAddress: string): Promise<CreateInvoice> {
+    return await wallet.createInvoice({
         amount: amount,
         memo: rskAddress,
         out: false,
