@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import Web3 from "web3";
 import 'tailwindcss/tailwind.css'
 import MyModal from "../components/MyModal";
-
+import {decode} from "@node-lightning/invoice";
 
 declare let window: any;
 
@@ -11,13 +11,18 @@ function index() {
     const [username, setUsername] = useState("loading...");
     const [showInputField, setShowInputField] = useState(false);
     const [amount, setAmount] = useState(1);
-    const [lninvoice, setLnInvoice] = useState("");
+    const [lninvoice, setLnInvoice] = useState({invoice: "", valueSat: "", expiry: 0, pubkey: ""});
     const [typeOfExchange, setTypeOfExchange] = useState("none")
 
     function getAccounts(callback) {
         window.web3.eth.getAccounts().then(result => {
             callback(result);
         })
+    }
+
+    function decodeLightningInvoice(invoice: string){
+        let result = decode(invoice);
+        setLnInvoice({invoice: invoice, valueSat: result.valueSat, expiry: result.expiry, pubkey: result.pubkey.toString('hex')})
     }
 
     function loginToEth() {
@@ -114,19 +119,31 @@ function index() {
                         }
                         {typeOfExchange == "RBTC" &&
                         <div>
-                            <label htmlFor="price" className="block text-sm font-medium text-gray-700">
+                            <label htmlFor="price" className="block text-base font-medium text-gray-700">
                                 Lightning invoice
                             </label>
-                            <div className="mt-1 relative rounded-md shadow-sm">
+                            <div className="mt-1 relative rounded-md shadow-sm mb-1">
                                 <textarea
                                     name="lninvoice"
                                     id="lninvoice"
                                     className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
                                     placeholder="pwz5w78pp5e8w8cr5c30xzws92v36sk45znhjn098rtc4pea6ertnmvu25ng3sdpywd6hyetyvf5hgueqv3jk6meqd9h8vmmfvdjsxqrrssy29mzkzjfq27u67evzu893heqex737dhcapvcuantkztg6pnk77nrm72y7z0rs47wzc09vcnugk2ve6sr2ewvcrtqnh3yttv847qqvqpvv398x"
-                                    value={lninvoice}
-                                    onChange={e => setLnInvoice(e.target.value)}
+                                    value={lninvoice.invoice}
+                                    onChange={e => decodeLightningInvoice(e.target.value)}
                                 />
                             </div>
+                            {
+                                lninvoice.invoice != "" &&
+                                    <div>
+                                        <label htmlFor="price" className="block text-base font-medium text-gray-700">
+                                            Amount:
+                                        </label> {lninvoice.valueSat} ⚡
+                                        <br/>
+                                        <label htmlFor="price" className="block text-base font-medium text-gray-700">
+                                            Expiry:
+                                        </label> {lninvoice.expiry}
+                                    </div>
+                            }
                         </div>
                         }
                     </div>}
