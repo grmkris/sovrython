@@ -198,7 +198,6 @@ export default function MyModal(props) {
                 <button className="text-white font-semibold m-4 py-2 px-4 rounded bg-gray-900 hover:bg-gray-800" onClick={() => {
                     sendFunds(props.props.amount);
                 }}>SUBMIT</button>
-                {username}
             </>
         )
     }
