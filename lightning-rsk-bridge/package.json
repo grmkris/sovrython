@@ -10,6 +10,7 @@
   "dependencies": {
     "@headlessui/react": "^1.2.0",
     "@heroicons/react": "^1.0.1",
+    "@node-lightning/invoice": "^0.22.1",
     "ethers": "^5.3.1",
     "lnbits": "^1.1.5",
     "next": "latest",
