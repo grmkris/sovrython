@@ -4,7 +4,7 @@ import Loader from "react-loader-spinner";
 import {CreateInvoice} from "../interfaces";
 import Web3 from "web3";
 
-const API_URL = process.env.BACKEND;
+const API_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 declare let window: any;
 const QRCode = require('qrcode.react');
