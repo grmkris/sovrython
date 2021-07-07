@@ -4,7 +4,8 @@ import Loader from "react-loader-spinner";
 import {CreateInvoice} from "../interfaces";
 import Web3 from "web3";
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = process.env.BACKEND;
+
 declare let window: any;
 const QRCode = require('qrcode.react');
 export default function MyModal(props) {
