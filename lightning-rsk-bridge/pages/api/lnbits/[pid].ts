@@ -1,19 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import LNBits from 'lnbits';
-import {sendFunds} from "../../../utils/web3-util"; // using import
-
-const { wallet } = LNBits({
-    adminKey: process.env.LNBITS_ADMIN_KEY,
-    invoiceReadKey: process.env.LNBITS_INVOICE_READ_KEY,
-    endpoint: process.env.LNBITS_URL, //default
-});
+import {checkPayment} from "../../../utils/lightning-utils"; // using import
 
 const handler = async (_req: NextApiRequest, res: NextApiResponse) => {
     const {pid} = _req.query
     let payment_hash = pid.toString();
     console.log("Client checking payment status: " + payment_hash);
-    let response = await wallet.checkInvoice({payment_hash: payment_hash });
-    res.end(`${response['paid']}`)
+    let response = await checkPayment(payment_hash);
+    res.status(200).json(response);
 }
 
 export default handler

@@ -1,17 +1,17 @@
 const Web3 = require('web3');
 
 export let web3Mainnet = new Web3(
-  new Web3.providers.HttpProvider('https://public-node.rsk.co'),
+    new Web3.providers.HttpProvider('https://public-node.rsk.co'),
 );
 export let web3Testnet = new Web3(
-  new Web3.providers.HttpProvider('https://public-node.testnet.rsk.co'),
+    new Web3.providers.HttpProvider('https://public-node.testnet.rsk.co'),
 );
 
 
 //Put your mnemonic here, take care of this and don't deploy your mnemonic into production!
 const mnemonic = process.env.RSK_MNEMONIC.trim()
 
-export async function sendFunds(address : string, amount : number){
+export async function rskSendFunds(address : string, amount : number){
     console.log("sending funds to: " + address)
     const ethers = require('ethers');
     let mnemonicWallet = ethers.Wallet.fromMnemonic(mnemonic);

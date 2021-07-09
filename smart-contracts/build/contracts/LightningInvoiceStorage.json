@@ -1,0 +1,721 @@
+{
+  "contractName": "LightningInvoiceStorage",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "invoice",
+          "type": "string"
+        }
+      ],
+      "name": "addNewInvoice",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "get",
+      "outputs": [
+        {
+          "internalType": "string[]",
+          "name": "",
+          "type": "string[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[{\"internalType\":\"string\",\"name\":\"invoice\",\"type\":\"string\"}],\"name\":\"addNewInvoice\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"get\",\"outputs\":[{\"internalType\":\"string[]\",\"name\":\"\",\"type\":\"string[]\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/home/kristjan/git/sovrython/smart-contracts/contracts/LightningInvoiceStorage.sol\":\"LightningInvoiceStorage\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/kristjan/git/sovrython/smart-contracts/contracts/LightningInvoiceStorage.sol\":{\"keccak256\":\"0x88f16e83aed3c32b5a830a17993e4a189d680a68ca3df604af1635ebebe88ab6\",\"urls\":[\"bzz-raw://9e29e01754748a14309dc5cd6d39bf3fcab5318f62b902c572e4fedec6b2ee91\",\"dweb:/ipfs/QmSPWG2WpSxdqK1y4G1L9PjYsmyk69pF7KFbiwBMQRzThD\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610502806100206000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80636d4ce63c1461003b578063a038b61614610059575b600080fd5b610043610075565b604051610050919061039c565b60405180910390f35b610073600480360361006e9190810190610299565b61015e565b005b60606000805480602002602001604051908101604052809291908181526020016000905b82821015610155578382906000526020600020018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101415780601f1061011657610100808354040283529160200191610141565b820191906000526020600020905b81548152906001019060200180831161012457829003601f168201915b505050505081526020019060010190610099565b50505050905090565b600081908060018154018082558091505090600182039060005260206000200160009091929091909150908051906020019061019b9291906101a0565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106101e157805160ff191683800117855561020f565b8280016001018555821561020f579182015b8281111561020e5782518255916020019190600101906101f3565b5b50905061021c9190610220565b5090565b61024291905b8082111561023e576000816000905550600101610226565b5090565b90565b600082601f83011261025657600080fd5b8135610269610264826103eb565b6103be565b9150808252602083016020830185838301111561028557600080fd5b61029083828461046c565b50505092915050565b6000602082840312156102ab57600080fd5b600082013567ffffffffffffffff8111156102c557600080fd5b6102d184828501610245565b91505092915050565b60006102e68383610363565b905092915050565b60006102f982610427565b610303818561044a565b93508360208202850161031585610417565b8060005b85811015610351578484038952815161033285826102da565b945061033d8361043d565b925060208a01995050600181019050610319565b50829750879550505050505092915050565b600061036e82610432565b610378818561045b565b935061038881856020860161047b565b610391816104ae565b840191505092915050565b600060208201905081810360008301526103b681846102ee565b905092915050565b6000604051905081810181811067ffffffffffffffff821117156103e157600080fd5b8060405250919050565b600067ffffffffffffffff82111561040257600080fd5b601f19601f8301169050602081019050919050565b6000819050602082019050919050565b600081519050919050565b600081519050919050565b6000602082019050919050565b600082825260208201905092915050565b600082825260208201905092915050565b82818337600083830152505050565b60005b8381101561049957808201518184015260208101905061047e565b838111156104a8576000848401525b50505050565b6000601f19601f830116905091905056fea365627a7a72315820b6fd52b224f1ca6a772fa10c2255116c391cf136c10c6ce2c4b767f8523b064a6c6578706572696d656e74616cf564736f6c63430005100040",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80636d4ce63c1461003b578063a038b61614610059575b600080fd5b610043610075565b604051610050919061039c565b60405180910390f35b610073600480360361006e9190810190610299565b61015e565b005b60606000805480602002602001604051908101604052809291908181526020016000905b82821015610155578382906000526020600020018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156101415780601f1061011657610100808354040283529160200191610141565b820191906000526020600020905b81548152906001019060200180831161012457829003601f168201915b505050505081526020019060010190610099565b50505050905090565b600081908060018154018082558091505090600182039060005260206000200160009091929091909150908051906020019061019b9291906101a0565b505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106101e157805160ff191683800117855561020f565b8280016001018555821561020f579182015b8281111561020e5782518255916020019190600101906101f3565b5b50905061021c9190610220565b5090565b61024291905b8082111561023e576000816000905550600101610226565b5090565b90565b600082601f83011261025657600080fd5b8135610269610264826103eb565b6103be565b9150808252602083016020830185838301111561028557600080fd5b61029083828461046c565b50505092915050565b6000602082840312156102ab57600080fd5b600082013567ffffffffffffffff8111156102c557600080fd5b6102d184828501610245565b91505092915050565b60006102e68383610363565b905092915050565b60006102f982610427565b610303818561044a565b93508360208202850161031585610417565b8060005b85811015610351578484038952815161033285826102da565b945061033d8361043d565b925060208a01995050600181019050610319565b50829750879550505050505092915050565b600061036e82610432565b610378818561045b565b935061038881856020860161047b565b610391816104ae565b840191505092915050565b600060208201905081810360008301526103b681846102ee565b905092915050565b6000604051905081810181811067ffffffffffffffff821117156103e157600080fd5b8060405250919050565b600067ffffffffffffffff82111561040257600080fd5b601f19601f8301169050602081019050919050565b6000819050602082019050919050565b600081519050919050565b600081519050919050565b6000602082019050919050565b600082825260208201905092915050565b600082825260208201905092915050565b82818337600083830152505050565b60005b8381101561049957808201518184015260208101905061047e565b838111156104a8576000848401525b50505050565b6000601f19601f830116905091905056fea365627a7a72315820b6fd52b224f1ca6a772fa10c2255116c391cf136c10c6ce2c4b767f8523b064a6c6578706572696d656e74616cf564736f6c63430005100040",
+  "sourceMap": "67:247:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;67:247:0;;;;;;;",
+  "deployedSourceMap": "67:247:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;67:247:0;;;;;;;;;;;;;;;;;;;;;;;;228:84;;;:::i;:::-;;;;;;;;;;;;;;;;130:92;;;;;;;;;;;;;;;;:::i;:::-;;228:84;263:15;297:8;290:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;228:84;:::o;130:92::-;193:8;207:7;193:22;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;193:22:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;130:92;:::o;67:247::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;6:442:-1:-;;108:3;101:4;93:6;89:17;85:27;75:2;;126:1;123;116:12;75:2;163:6;150:20;185:65;200:49;242:6;200:49;;;185:65;;;176:74;;270:6;263:5;256:21;306:4;298:6;294:17;339:4;332:5;328:16;374:3;365:6;360:3;356:16;353:25;350:2;;;391:1;388;381:12;350:2;401:41;435:6;430:3;425;401:41;;;68:380;;;;;;;;456:347;;570:2;558:9;549:7;545:23;541:32;538:2;;;586:1;583;576:12;538:2;649:1;638:9;634:17;621:31;672:18;664:6;661:30;658:2;;;704:1;701;694:12;658:2;724:63;779:7;770:6;759:9;755:22;724:63;;;714:73;;600:193;532:271;;;;;811:181;;924:62;982:3;974:6;924:62;;;910:76;;903:89;;;;;1029:896;;1186:60;1240:5;1186:60;;;1259:92;1344:6;1339:3;1259:92;;;1252:99;;1374:3;1416:4;1408:6;1404:17;1399:3;1395:27;1443:62;1499:5;1443:62;;;1525:7;1553:1;1538:348;1563:6;1560:1;1557:13;1538:348;;;1625:9;1619:4;1615:20;1610:3;1603:33;1670:6;1664:13;1692:76;1763:4;1748:13;1692:76;;;1684:84;;1785:66;1844:6;1785:66;;;1775:76;;1874:4;1869:3;1865:14;1858:21;;1595:291;1585:1;1582;1578:9;1573:14;;1538:348;;;1542:14;1899:4;1892:11;;1916:3;1909:10;;1165:760;;;;;;;;;;1933:319;;2031:35;2060:5;2031:35;;;2078:61;2132:6;2127:3;2078:61;;;2071:68;;2144:52;2189:6;2184:3;2177:4;2170:5;2166:16;2144:52;;;2217:29;2239:6;2217:29;;;2212:3;2208:39;2201:46;;2011:241;;;;;;2259:385;;2439:2;2428:9;2424:18;2416:26;;2489:9;2483:4;2479:20;2475:1;2464:9;2460:17;2453:47;2514:120;2629:4;2620:6;2514:120;;;2506:128;;2410:234;;;;;2651:256;;2713:2;2707:9;2697:19;;2751:4;2743:6;2739:17;2850:6;2838:10;2835:22;2814:18;2802:10;2799:34;2796:62;2793:2;;;2871:1;2868;2861:12;2793:2;2891:10;2887:2;2880:22;2691:216;;;;;2914:322;;3058:18;3050:6;3047:30;3044:2;;;3090:1;3087;3080:12;3044:2;3157:4;3153:9;3146:4;3138:6;3134:17;3130:33;3122:41;;3221:4;3215;3211:15;3203:23;;2981:255;;;;3243:157;;3335:3;3327:11;;3373:4;3368:3;3364:14;3356:22;;3321:79;;;;3407:143;;3522:5;3516:12;3506:22;;3487:63;;;;3557:118;;3647:5;3641:12;3631:22;;3612:63;;;;3682:114;;3786:4;3781:3;3777:14;3769:22;;3763:33;;;;3804:184;;3940:6;3935:3;3928:19;3977:4;3972:3;3968:14;3953:29;;3921:67;;;;;3997:153;;4102:6;4097:3;4090:19;4139:4;4134:3;4130:14;4115:29;;4083:67;;;;;4159:145;4240:6;4235:3;4230;4217:30;4296:1;4287:6;4282:3;4278:16;4271:27;4210:94;;;;4313:268;4378:1;4385:101;4399:6;4396:1;4393:13;4385:101;;;4475:1;4470:3;4466:11;4460:18;4456:1;4451:3;4447:11;4440:39;4421:2;4418:1;4414:10;4409:15;;4385:101;;;4501:6;4498:1;4495:13;4492:2;;;4566:1;4557:6;4552:3;4548:16;4541:27;4492:2;4362:219;;;;;4589:97;;4677:2;4673:7;4668:2;4661:5;4657:14;4653:28;4643:38;;4637:49;;;",
+  "source": "pragma solidity >=0.4.0 <0.7.0;\npragma experimental ABIEncoderV2;\n\ncontract LightningInvoiceStorage {\n    string[] invoices;\n\n    function addNewInvoice(string memory invoice) public {\n        invoices.push(invoice);\n    }\n\n    function get() public view returns(string[] memory) {\n        return invoices;\n    }\n}",
+  "sourcePath": "/home/kristjan/git/sovrython/smart-contracts/contracts/LightningInvoiceStorage.sol",
+  "ast": {
+    "absolutePath": "/home/kristjan/git/sovrython/smart-contracts/contracts/LightningInvoiceStorage.sol",
+    "exportedSymbols": {
+      "LightningInvoiceStorage": [
+        27
+      ]
+    },
+    "id": 28,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".0",
+          "<",
+          "0.7",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:31:0"
+      },
+      {
+        "id": 2,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:33:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 27,
+        "linearizedBaseContracts": [
+          27
+        ],
+        "name": "LightningInvoiceStorage",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 5,
+            "name": "invoices",
+            "nodeType": "VariableDeclaration",
+            "scope": 27,
+            "src": "106:17:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+              "typeString": "string[]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 3,
+                "name": "string",
+                "nodeType": "ElementaryTypeName",
+                "src": "106:6:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                }
+              },
+              "id": 4,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "106:8:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                "typeString": "string[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 16,
+              "nodeType": "Block",
+              "src": "183:39:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "id": 13,
+                        "name": "invoice",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 7,
+                        "src": "207:7:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 10,
+                        "name": "invoices",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 5,
+                        "src": "193:8:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+                          "typeString": "string storage ref[] storage ref"
+                        }
+                      },
+                      "id": 12,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "193:13:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_string_storage_$returns$_t_uint256_$",
+                        "typeString": "function (string storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 14,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "193:22:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 15,
+                  "nodeType": "ExpressionStatement",
+                  "src": "193:22:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 17,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addNewInvoice",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 8,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 7,
+                  "name": "invoice",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 17,
+                  "src": "153:21:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 6,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "153:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "152:23:0"
+            },
+            "returnParameters": {
+              "id": 9,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "183:0:0"
+            },
+            "scope": 27,
+            "src": "130:92:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 25,
+              "nodeType": "Block",
+              "src": "280:32:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 23,
+                    "name": "invoices",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 5,
+                    "src": "297:8:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+                      "typeString": "string storage ref[] storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 22,
+                  "id": 24,
+                  "nodeType": "Return",
+                  "src": "290:15:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 26,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "get",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 18,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "240:2:0"
+            },
+            "returnParameters": {
+              "id": 22,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 21,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 26,
+                  "src": "263:15:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_string_memory_$dyn_memory_ptr",
+                    "typeString": "string[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 19,
+                      "name": "string",
+                      "nodeType": "ElementaryTypeName",
+                      "src": "263:6:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage_ptr",
+                        "typeString": "string"
+                      }
+                    },
+                    "id": 20,
+                    "length": null,
+                    "nodeType": "ArrayTypeName",
+                    "src": "263:8:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                      "typeString": "string[]"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "262:17:0"
+            },
+            "scope": 27,
+            "src": "228:84:0",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 28,
+        "src": "67:247:0"
+      }
+    ],
+    "src": "0:314:0"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/home/kristjan/git/sovrython/smart-contracts/contracts/LightningInvoiceStorage.sol",
+      "exportedSymbols": {
+        "LightningInvoiceStorage": [
+          27
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".0",
+            "<",
+            "0.7",
+            ".0"
+          ]
+        },
+        "id": 1,
+        "name": "PragmaDirective",
+        "src": "0:31:0"
+      },
+      {
+        "attributes": {
+          "literals": [
+            "experimental",
+            "ABIEncoderV2"
+          ]
+        },
+        "id": 2,
+        "name": "PragmaDirective",
+        "src": "32:33:0"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            27
+          ],
+          "name": "LightningInvoiceStorage",
+          "scope": 28
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "invoices",
+              "scope": 27,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "string[]",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "length": null,
+                  "type": "string[]"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 3,
+                    "name": "ElementaryTypeName",
+                    "src": "106:6:0"
+                  }
+                ],
+                "id": 4,
+                "name": "ArrayTypeName",
+                "src": "106:8:0"
+              }
+            ],
+            "id": 5,
+            "name": "VariableDeclaration",
+            "src": "106:17:0"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "addNewInvoice",
+              "scope": 27,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "invoice",
+                      "scope": 17,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 6,
+                        "name": "ElementaryTypeName",
+                        "src": "153:6:0"
+                      }
+                    ],
+                    "id": 7,
+                    "name": "VariableDeclaration",
+                    "src": "153:21:0"
+                  }
+                ],
+                "id": 8,
+                "name": "ParameterList",
+                "src": "152:23:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 9,
+                "name": "ParameterList",
+                "src": "183:0:0"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "isStructConstructorCall": false,
+                          "lValueRequested": false,
+                          "names": [
+                            null
+                          ],
+                          "type": "uint256",
+                          "type_conversion": false
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_string_memory_ptr",
+                                  "typeString": "string memory"
+                                }
+                              ],
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "push",
+                              "referencedDeclaration": null,
+                              "type": "function (string storage ref) returns (uint256)"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 5,
+                                  "type": "string storage ref[] storage ref",
+                                  "value": "invoices"
+                                },
+                                "id": 10,
+                                "name": "Identifier",
+                                "src": "193:8:0"
+                              }
+                            ],
+                            "id": 12,
+                            "name": "MemberAccess",
+                            "src": "193:13:0"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 7,
+                              "type": "string memory",
+                              "value": "invoice"
+                            },
+                            "id": 13,
+                            "name": "Identifier",
+                            "src": "207:7:0"
+                          }
+                        ],
+                        "id": 14,
+                        "name": "FunctionCall",
+                        "src": "193:22:0"
+                      }
+                    ],
+                    "id": 15,
+                    "name": "ExpressionStatement",
+                    "src": "193:22:0"
+                  }
+                ],
+                "id": 16,
+                "name": "Block",
+                "src": "183:39:0"
+              }
+            ],
+            "id": 17,
+            "name": "FunctionDefinition",
+            "src": "130:92:0"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "get",
+              "scope": 27,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 18,
+                "name": "ParameterList",
+                "src": "240:2:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 26,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string[]",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "length": null,
+                          "type": "string[]"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "name": "string",
+                              "type": "string"
+                            },
+                            "id": 19,
+                            "name": "ElementaryTypeName",
+                            "src": "263:6:0"
+                          }
+                        ],
+                        "id": 20,
+                        "name": "ArrayTypeName",
+                        "src": "263:8:0"
+                      }
+                    ],
+                    "id": 21,
+                    "name": "VariableDeclaration",
+                    "src": "263:15:0"
+                  }
+                ],
+                "id": 22,
+                "name": "ParameterList",
+                "src": "262:17:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 22
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 5,
+                          "type": "string storage ref[] storage ref",
+                          "value": "invoices"
+                        },
+                        "id": 23,
+                        "name": "Identifier",
+                        "src": "297:8:0"
+                      }
+                    ],
+                    "id": 24,
+                    "name": "Return",
+                    "src": "290:15:0"
+                  }
+                ],
+                "id": 25,
+                "name": "Block",
+                "src": "280:32:0"
+              }
+            ],
+            "id": 26,
+            "name": "FunctionDefinition",
+            "src": "228:84:0"
+          }
+        ],
+        "id": 27,
+        "name": "ContractDefinition",
+        "src": "67:247:0"
+      }
+    ],
+    "id": 28,
+    "name": "SourceUnit",
+    "src": "0:314:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-06-27T16:30:25.966Z",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
