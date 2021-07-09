@@ -14,27 +14,26 @@ function index() {
     const [lninvoice, setLnInvoice] = useState({invoice: "", valueSat: "", expiry: 0, pubkey: ""});
     const [typeOfExchange, setTypeOfExchange] = useState("none")
 
-    function getAccounts(callback) {
-        window.web3.eth.getAccounts().then(result => {
-            callback(result);
-        })
-    }
-
-    function decodeLightningInvoice(invoice: string){
+    function decodeLightningInvoice(invoice: string) {
         let result = decode(invoice);
-        setLnInvoice({invoice: invoice, valueSat: result.valueSat, expiry: result.expiry, pubkey: result.pubkey.toString('hex')})
+        setLnInvoice({
+            invoice: invoice,
+            valueSat: result.valueSat,
+            expiry: result.expiry,
+            pubkey: result.pubkey.toString('hex')
+        })
     }
 
     function loginToEth() {
         if (window.ethereum) {
-            window.web3 = new Web3(window.ethereum)
-            window.ethereum.enable();
-            console.log(window.web3)
-            getAccounts(function (result) {
-                console.log(result[0]);
+            console.log("web3 - login regular")
+            window.web3 = new Web3(window.ethereum);
+            window.ethereum.enable().then(result => {
+                console.log(result[0])
                 setUsername(result[0]);
-            });
+            })
         } else if (window.web3) {
+            console.log("web3 - login")
             window.web3 = new Web3(window.web3.currentProvider)
         } else {
             window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
@@ -46,13 +45,25 @@ function index() {
     }, [])
     return (
         <>
-            {username != "loading..." &&
-            <button className="text-white font-semibold m-4 py-2 px-4 rounded bg-gray-900 hover:bg-gray-800"
-                    onClick={loginToEth}>LOGOUT</button>}
             {username == "loading..." &&
             <button className="text-white font-semibold m-4 py-2 px-4 rounded bg-gray-900 hover:bg-gray-800"
                     onClick={loginToEth}>LOGIN</button>}
-            {username != "loading..." && <span> Hello: {username} </span>}
+
+            {username != "loading..." &&
+            <>
+                <button className="text-white font-semibold m-4 py-2 px-4 rounded bg-gray-900 hover:bg-gray-800"
+                        onClick={() => {
+                            setUsername("loading...")
+                        }}>LOGOUT
+                </button>
+                <div className="p-2 w-full">
+                    <div className="bg-gray-100 rounded flex p-4 h-full items-center">
+                        <span className="title-font font-medium text-sm md:text-lg">Hello: {username}</span>
+                    </div>
+                </div>
+            </>
+            }
+
             <section className="text-gray-600 body-font">
                 <div className="container px-5 py-8 mx-auto">
                     <div className="flex flex-wrap -mx-4 -mb-10 text-center">
@@ -134,15 +145,15 @@ function index() {
                             </div>
                             {
                                 lninvoice.invoice != "" &&
-                                    <div>
-                                        <label htmlFor="price" className="block text-base font-medium text-gray-700">
-                                            Amount:
-                                        </label> {lninvoice.valueSat} ⚡
-                                        <br/>
-                                        <label htmlFor="price" className="block text-base font-medium text-gray-700">
-                                            Expiry:
-                                        </label> {lninvoice.expiry}
-                                    </div>
+                                <div>
+                                    <label htmlFor="price" className="block text-base font-medium text-gray-700">
+                                        Amount:
+                                    </label> {lninvoice.valueSat} ⚡
+                                    <br/>
+                                    <label htmlFor="price" className="block text-base font-medium text-gray-700">
+                                        Expiry:
+                                    </label> {lninvoice.expiry}
+                                </div>
                             }
                         </div>
                         }
@@ -152,7 +163,7 @@ function index() {
                 </div>
             </section>
         </>
-    )
-}
+    );
+};
 
 export default index;
