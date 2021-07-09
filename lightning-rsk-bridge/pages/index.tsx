@@ -67,30 +67,30 @@ function index() {
             <section className="text-gray-600 body-font">
                 <div className="container px-5 py-8 mx-auto">
                     <div className="flex flex-wrap -mx-4 -mb-10 text-center">
-                        <div className="sm:w-1/2 mb-10 px-4">
+                        <div className="sm:w-1/2 mb-10 px-4 w-full">
                             <div onClick={() => {
                                 if (username != "loading...") {
                                     setShowInputField(true);
                                     setTypeOfExchange("LBTC")
                                 }
                             }}
-                                 className={` ${(username == "loading...") ? "cursor-not-allowed bg-gradient-to-tr from-gray-200 via-gray-400 to-gray-600" : "cursor-pointer bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 hover:from-red-400 hover:to-yellow-500 hover:text-black"}  text-white text-6xl  rounded-lg h-64 overflow-hidden
+                                 className={` ${(username == "loading...") ? "cursor-not-allowed bg-gradient-to-tr from-gray-200 via-gray-400 to-gray-600" : "cursor-pointer bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 hover:from-red-400 hover:to-yellow-500 hover:text-black"}  text-white text-2xl md:text-6xl rounded-lg h-32 md:h-64 w-full overflow-hidden
                                             ${(typeOfExchange == "LBTC") ? "border-4 border-gray-900" : ""}
                             `}>
-                                <span className="inline-block align-bottom pt-20">Buy RBTC with ⚡</span>
+                                <span className="inline-block align-center pt-20">Buy RBTC with ⚡</span>
                             </div>
                         </div>
-                        <div className="sm:w-1/2 mb-10 px-4">
+                        <div className="sm:w-1/2 mb-10 px-4 w-full">
                             <div onClick={() => {
                                 if (username != "loading...") {
                                     setShowInputField(true);
                                     setTypeOfExchange("RBTC")
                                 }
                             }}
-                                 className={` ${(username == "loading...") ? "cursor-not-allowed bg-gradient-to-tr from-gray-200 via-gray-400 to-gray-600" : "cursor-pointer bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 hover:from-red-400 hover:to-yellow-500 hover:text-black"}  text-white text-6xl  rounded-lg h-64 overflow-hidden
+                                 className={` ${(username == "loading...") ? "cursor-not-allowed bg-gradient-to-tr from-gray-200 via-gray-400 to-gray-600" : "cursor-pointer bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 hover:from-red-400 hover:to-yellow-500 hover:text-black"}  text-white text-2xl md:text-6xl rounded-lg h-32 md:h-64 w-full overflow-hidden
                                             ${(typeOfExchange == "RBTC") ? "border-4 border-gray-900" : ""}
                             `}>
-                                <span className="inline-block align-bottom pt-20">Buy ⚡ with RBTC</span>
+                                <span className="inline-block align-center pt-20">Buy ⚡ with RBTC</span>
                             </div>
                         </div>
                     </div>
@@ -138,7 +138,7 @@ function index() {
                                     name="lninvoice"
                                     id="lninvoice"
                                     className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
-                                    placeholder="pwz5w78pp5e8w8cr5c30xzws92v36sk45znhjn098rtc4pea6ertnmvu25ng3sdpywd6hyetyvf5hgueqv3jk6meqd9h8vmmfvdjsxqrrssy29mzkzjfq27u67evzu893heqex737dhcapvcuantkztg6pnk77nrm72y7z0rs47wzc09vcnugk2ve6sr2ewvcrtqnh3yttv847qqvqpvv398x"
+                                    placeholder="bolt11 compatible invoice"
                                     value={lninvoice.invoice}
                                     onChange={e => decodeLightningInvoice(e.target.value)}
                                 />
@@ -164,6 +164,6 @@ function index() {
             </section>
         </>
     );
-};
+}
 
 export default index;
