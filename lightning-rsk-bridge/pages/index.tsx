@@ -14,27 +14,26 @@ function index() {
     const [lninvoice, setLnInvoice] = useState({invoice: "", valueSat: "", expiry: 0, pubkey: ""});
     const [typeOfExchange, setTypeOfExchange] = useState("none")
 
-    function getAccounts(callback) {
-        window.web3.eth.getAccounts().then(result => {
-            callback(result);
-        })
-    }
-
-    function decodeLightningInvoice(invoice: string){
+    function decodeLightningInvoice(invoice: string) {
         let result = decode(invoice);
-        setLnInvoice({invoice: invoice, valueSat: result.valueSat, expiry: result.expiry, pubkey: result.pubkey.toString('hex')})
+        setLnInvoice({
+            invoice: invoice,
+            valueSat: result.valueSat,
+            expiry: result.expiry,
+            pubkey: result.pubkey.toString('hex')
+        })
     }
 
     function loginToEth() {
         if (window.ethereum) {
-            window.web3 = new Web3(window.ethereum)
-            window.ethereum.enable();
-            console.log(window.web3)
-            getAccounts(function (result) {
-                console.log(result[0]);
+            console.log("web3 - login regular")
+            window.web3 = new Web3(window.ethereum);
+            window.ethereum.enable().then(result => {
+                console.log(result[0])
                 setUsername(result[0]);
-            });
+            })
         } else if (window.web3) {
+            console.log("web3 - login")
             window.web3 = new Web3(window.web3.currentProvider)
         } else {
             window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
@@ -46,40 +45,54 @@ function index() {
     }, [])
     return (
         <>
-            {username != "loading..." &&
-            <button className="text-white font-semibold m-4 py-2 px-4 rounded bg-gray-900 hover:bg-gray-800"
-                    onClick={loginToEth}>LOGOUT</button>}
             {username == "loading..." &&
             <button className="text-white font-semibold m-4 py-2 px-4 rounded bg-gray-900 hover:bg-gray-800"
                     onClick={loginToEth}>LOGIN</button>}
-            {username != "loading..." && <span> Hello: {username} </span>}
+
+            {username != "loading..." &&
+            <>
+                <button className="text-white font-semibold m-4 py-2 px-4 rounded bg-gray-900 hover:bg-gray-800"
+                        onClick={() => {
+                            setUsername("loading...")
+                        }}>LOGOUT
+                </button>
+                <div className="p-2 w-full">
+                    <div className="bg-gray-100 rounded flex p-4 h-full items-center">
+                        <span className="title-font font-medium text-sm md:text-lg">Hello: {username}</span>
+                    </div>
+                </div>
+            </>
+            }
+
             <section className="text-gray-600 body-font">
                 <div className="container px-5 py-8 mx-auto">
                     <div className="flex flex-wrap -mx-4 -mb-10 text-center">
-                        <div className="sm:w-1/2 mb-10 px-4">
+                        <div className="sm:w-1/2 mb-10 px-4 w-full">
                             <div onClick={() => {
                                 if (username != "loading...") {
                                     setShowInputField(true);
                                     setTypeOfExchange("LBTC")
                                 }
                             }}
-                                 className={` ${(username == "loading...") ? "cursor-not-allowed bg-gradient-to-tr from-gray-200 via-gray-400 to-gray-600" : "cursor-pointer bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 hover:from-red-400 hover:to-yellow-500 hover:text-black"}  text-white text-6xl  rounded-lg h-64 overflow-hidden
+                                 className={` ${(username == "loading...") ? "cursor-not-allowed bg-gradient-to-tr from-gray-200 via-gray-400 to-gray-600" : "cursor-pointer bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 hover:from-red-400 hover:to-yellow-500 hover:text-black"}  text-white text-2xl md:text-6xl rounded-lg h-32 md:h-64 w-full overflow-hidden
                                             ${(typeOfExchange == "LBTC") ? "border-4 border-gray-900" : ""}
                             `}>
-                                <span className="inline-block align-bottom pt-20">Buy RBTC with ⚡</span>
+                                <span className="inline-block align-center pt-20">Buy RBTC with ⚡</span>
                             </div>
                         </div>
-                        <div className="sm:w-1/2 mb-10 px-4">
+                        <div className="sm:w-1/2 mb-10 px-4 w-full">
                             <div onClick={() => {
+                                /*
                                 if (username != "loading...") {
                                     setShowInputField(true);
                                     setTypeOfExchange("RBTC")
                                 }
+                                 */
                             }}
-                                 className={` ${(username == "loading...") ? "cursor-not-allowed bg-gradient-to-tr from-gray-200 via-gray-400 to-gray-600" : "cursor-pointer bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 hover:from-red-400 hover:to-yellow-500 hover:text-black"}  text-white text-6xl  rounded-lg h-64 overflow-hidden
+                                 className={`"cursor-not-allowed bg-gradient-to-tr from-gray-200 via-gray-400 to-gray-600 text-white text-2xl md:text-6xl rounded-lg h-32 md:h-64 w-full overflow-hidden
                                             ${(typeOfExchange == "RBTC") ? "border-4 border-gray-900" : ""}
                             `}>
-                                <span className="inline-block align-bottom pt-20">Buy ⚡ with RBTC</span>
+                                <span className="inline-block align-center pt-20">Buy ⚡ with RBTC</span>
                             </div>
                         </div>
                     </div>
@@ -127,22 +140,22 @@ function index() {
                                     name="lninvoice"
                                     id="lninvoice"
                                     className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-7 pr-12 sm:text-sm border-gray-300 rounded-md"
-                                    placeholder="pwz5w78pp5e8w8cr5c30xzws92v36sk45znhjn098rtc4pea6ertnmvu25ng3sdpywd6hyetyvf5hgueqv3jk6meqd9h8vmmfvdjsxqrrssy29mzkzjfq27u67evzu893heqex737dhcapvcuantkztg6pnk77nrm72y7z0rs47wzc09vcnugk2ve6sr2ewvcrtqnh3yttv847qqvqpvv398x"
+                                    placeholder="bolt11 compatible invoice"
                                     value={lninvoice.invoice}
                                     onChange={e => decodeLightningInvoice(e.target.value)}
                                 />
                             </div>
                             {
                                 lninvoice.invoice != "" &&
-                                    <div>
-                                        <label htmlFor="price" className="block text-base font-medium text-gray-700">
-                                            Amount:
-                                        </label> {lninvoice.valueSat} ⚡
-                                        <br/>
-                                        <label htmlFor="price" className="block text-base font-medium text-gray-700">
-                                            Expiry:
-                                        </label> {lninvoice.expiry}
-                                    </div>
+                                <div>
+                                    <label htmlFor="price" className="block text-base font-medium text-gray-700">
+                                        Amount:
+                                    </label> {lninvoice.valueSat} ⚡
+                                    <br/>
+                                    <label htmlFor="price" className="block text-base font-medium text-gray-700">
+                                        Expiry:
+                                    </label> {lninvoice.expiry}
+                                </div>
                             }
                         </div>
                         }
@@ -152,7 +165,7 @@ function index() {
                 </div>
             </section>
         </>
-    )
+    );
 }
 
 export default index;

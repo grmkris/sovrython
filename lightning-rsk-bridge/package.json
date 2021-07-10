@@ -2,7 +2,7 @@
   "name": "with-typescript",
   "version": "1.0.0",
   "scripts": {
-    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc"
@@ -11,6 +11,7 @@
     "@headlessui/react": "^1.2.0",
     "@heroicons/react": "^1.0.1",
     "@node-lightning/invoice": "^0.22.1",
+    "cross-env": "^7.0.3",
     "ethers": "^5.3.1",
     "lnbits": "^1.1.5",
     "next": "latest",
