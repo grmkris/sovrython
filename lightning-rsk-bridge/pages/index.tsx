@@ -82,12 +82,14 @@ function index() {
                         </div>
                         <div className="sm:w-1/2 mb-10 px-4 w-full">
                             <div onClick={() => {
+                                /*
                                 if (username != "loading...") {
                                     setShowInputField(true);
                                     setTypeOfExchange("RBTC")
                                 }
+                                 */
                             }}
-                                 className={` ${(username == "loading...") ? "cursor-not-allowed bg-gradient-to-tr from-gray-200 via-gray-400 to-gray-600" : "cursor-pointer bg-gradient-to-r from-red-600 via-yellow-500 to-red-600 hover:from-red-400 hover:to-yellow-500 hover:text-black"}  text-white text-2xl md:text-6xl rounded-lg h-32 md:h-64 w-full overflow-hidden
+                                 className={`"cursor-not-allowed bg-gradient-to-tr from-gray-200 via-gray-400 to-gray-600 text-white text-2xl md:text-6xl rounded-lg h-32 md:h-64 w-full overflow-hidden
                                             ${(typeOfExchange == "RBTC") ? "border-4 border-gray-900" : ""}
                             `}>
                                 <span className="inline-block align-center pt-20">Buy ⚡ with RBTC</span>
